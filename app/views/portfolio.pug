@@ -1,0 +1,60 @@
+html
+    head
+    style(type="text/css").
+        td, tr, th {
+            border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            min-width: 100px;
+            height: 30px;
+            text-align:center;
+        }
+        span {
+            width: 100%;
+            display: block;
+        }
+    title Portfolio
+    body
+        div
+            //- h3= portfolio.name
+        div
+        -var authorized = false
+            if !authorized
+                table
+                    tbody
+                        tr
+                            th Name
+                            th Ticker
+                            th Amount
+                            th Price
+                            th Balance
+                        - for (var i = 0; i < 5; ++i)
+                            tr  
+                                <td><span id="A1" contenteditable></span></td>
+                                <td><span id="A1" contenteditable></span></td>
+                                <td><span id="B1" contenteditable></span></td>
+                                <td><span id="C1" contenteditable></span></td>
+                                <td><span id="C1" contenteditable></span></td>
+            else
+                table
+                    thead
+                        tr
+                            th Name
+                            th Ticker
+                            th Amount
+                            th Price
+                            th Balance
+                    tbody
+                        each coin in portfolio.holdings
+                            tr
+                                td: span#coin.name(contenteditable=true) !{coin.name}
+                                td: span#coin.ticker(contenteditable=true) !{coin.ticker} 
+                                td: span#coin.amount(contenteditable=true) !{coin.amount}
+                                td: span#coin.price(contenteditable=true) !{coin.price}
+                                td: span#coin.balance(contenteditable=true) !{coin.balance}
+
+            button#save(type="submit") Save Portfolio
+

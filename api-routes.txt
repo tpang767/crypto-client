@@ -1,0 +1,39 @@
+
+GET /login  
+    render login page
+POST /login 
+    authenticate user
+    redirect to portfolio view
+
+---------------------
+GET /logout 
+    logout user
+    redirect to home view 
+
+---------------------
+GET /signup  
+    render signup page 
+POST /signup 
+    authenticate signup 
+    create user
+
+---------------------
+GET /user 
+    list user details
+POST /user/field 
+    update user details
+
+---------------------
+GET /portfolio 
+    retrieve portfolio details
+GET /portfolio/holdings
+    retrieve holdings list
+GET /portfolio/totalBalance
+    retrieve total balance
+
+POST /portfolio 
+    update portfolio details
+POST /portfolio/holdings
+    update holdings details
+DELETE /portfolio
+    delete portfolio
